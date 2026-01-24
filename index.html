@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>NextItaly RP – Roma</title>
+  <meta name="theme-color" content="#0161EA"/>
+  <link rel="icon" type="image/png" href="assets/favicon.png"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  
+<header class="header">
+  <div class="header-inner">
+    <div class="logo"><img src="assets/logo.png" alt="NextItaly Logo"/><span class="brand">NextItaly RP</span></div>
+    <nav class="nav">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="https://next-italy.gitbook.io/next-italy-regolamento/">Regolamento</a>
+      <a href="social.html">Social</a>
+      <a href="https://youtube.com/nextitalytrailer" target="_blank" rel="noopener">Guarda Trailer</a>
+      <form class="search" onsubmit="event.preventDefault(); doSearch(document.getElementById('q').value.trim());">
+        <input id="q" type="search" placeholder="Cerca nel regolamento…"/>
+        <button type="button" onclick="doSearch(document.getElementById('q').value.trim());">Cerca</button>
+      </form>
+    </nav>
+  </div>
+</header>
+
+  <main class="hero">
+    <div>
+      <img src="assets/logo.png" class="main-logo" alt="NextItaly"/>
+      <h1>Benvenuto su NextItaly RP – Roma</h1>
+      <p>Vivi la tua storia. Non interpretare un ruolo, scrivilo.</p>
+      <div class="cta">
+        <a class="btn" href="https://youtube.com/nextitalytrailer" target="_blank" rel="noopener">🎬 Guarda Trailer</a>
+        <a class="btn" href="social.html">🌐 Social</a>
+      </div>
+    </div>
+  </main>
+  <section class="container section">
+    <article class="card">
+      <h2>Spoiler Next Italy</h2>
+      <pre class="raw">Attualmente non disponibili</pre>
+    </article>
+  </section>
+  
+<footer class="footer">
+  <div>© 2025 <strong>NextItaly RP – Italia</strong>. Tutti i diritti riservati.</div>
+  <div><strong>By Next Italy Developing</strong></div>
+  <div>Antonino3400, EvilDev04, Ciopee, Ghost_bisou</div>
+</footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
