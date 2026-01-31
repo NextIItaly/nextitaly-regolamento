@@ -47,7 +47,7 @@ article, section, .content, .regolamento-text, .text-container {
 :root{ --bg:#0a0f24; --text:#ffffff; }
 html, body{ margin:0; padding:0; background: radial-gradient(70% 100% at 50% 0%, rgba(60,90,200,0.08), transparent 60%), var(--bg); color: var(--text); }
 
-/* YouTube horizontal carousel */
+/* YouTube horizontal carousel (RTL) */
 .yt-wrap{
   position: relative;
   margin-top: 18px;
@@ -59,7 +59,8 @@ html, body{ margin:0; padding:0; background: radial-gradient(70% 100% at 50% 0%,
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  padding: 10px 44px; /* spazio per le frecce */
+  padding: 10px 44px;
+  direction: rtl; /* invertito: parte da destra */
 }
 
 .yt-carousel::-webkit-scrollbar{
@@ -71,8 +72,9 @@ html, body{ margin:0; padding:0; background: radial-gradient(70% 100% at 50% 0%,
 }
 
 .yt-item{
-  flex: 0 0 360px;         /* larghezza card video */
+  flex: 0 0 360px;
   scroll-snap-align: start;
+  direction: ltr;
 }
 
 @media (min-width: 900px){
@@ -89,7 +91,6 @@ html, body{ margin:0; padding:0; background: radial-gradient(70% 100% at 50% 0%,
   box-shadow: 0 10px 28px rgba(0,0,0,.35);
 }
 
-/* arrows */
 .yt-arrow{
   position: absolute;
   top: 50%;
@@ -114,5 +115,6 @@ html, body{ margin:0; padding:0; background: radial-gradient(70% 100% at 50% 0%,
   background: rgba(1,97,234,.25);
   border-color: rgba(1,97,234,.45);
 }
+
 
 
