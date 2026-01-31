@@ -9,15 +9,20 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  
+
 <header class="header">
   <div class="header-inner">
-    <div class="logo"><img src="assets/logo.png" alt="NextItaly Logo"/><span class="brand">NextItaly RP</span></div>
+    <div class="logo">
+      <img src="assets/logo.png" alt="NextItaly Logo"/>
+      <span class="brand">NextItaly RP</span>
+    </div>
+
     <nav class="nav">
       <a href="index.html" aria-current="page">Home</a>
       <a href="https://next-italy.gitbook.io/next-italy-regolamento/">Regolamento</a>
       <a href="social.html">Social</a>
       <a href="https://youtube.com/nextitalytrailer" target="_blank" rel="noopener">Guarda Trailer</a>
+
       <form class="search" onsubmit="event.preventDefault(); doSearch(document.getElementById('q').value.trim());">
         <input id="q" type="search" placeholder="Cerca nel regolamento…"/>
         <button type="button" onclick="doSearch(document.getElementById('q').value.trim());">Cerca</button>
@@ -26,33 +31,109 @@
   </div>
 </header>
 
-  <main class="hero">
-    <div>
-      <img src="assets/logo.png" class="main-logo" alt="NextItaly"/>
-      <h1>Benvenuto su Next Italy</h1>
-      <p>Il tuo prossimo server roleplay</p>
-      <div class="cta">
-        <a class="btn" href="https://youtube.com/nextitalytrailer" target="_blank" rel="noopener">🎬 Guarda Trailer</a>
-        <a class="btn" href="social.html">🌐 Social</a>
-      </div>
+<main class="hero">
+  <div>
+    <img src="assets/logo.png" class="main-logo" alt="NextItaly"/>
+    <h1>Benvenuto su Next Italy</h1>
+    <p>Il tuo prossimo server roleplay</p>
+
+    <div class="cta">
+      <a class="btn" href="https://youtube.com/nextitalytrailer" target="_blank" rel="noopener">🎬 Guarda Trailer</a>
+      <a class="btn" href="social.html">🌐 Social</a>
     </div>
-  </main>
-  <section class="container section">
-    <article class="card">
-  <h2>Spoiler Next Italy</h2>
+  </div>
+</main>
 
-  <div class="youtube-embeds">
-  ...
-</div>
-</article>
+<section class="container section">
+  <article class="card">
+    <h2>Spoiler Next Italy</h2>
 
-  
+    <div class="yt-wrap">
+      <button class="yt-arrow yt-prev" type="button" aria-label="Video precedenti">‹</button>
+
+      <div class="yt-carousel" id="ytCarousel">
+        <div class="yt-item">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/u73fTyh-Sg8"
+            title="YouTube video"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+
+        <div class="yt-item">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/LtVNAkfAww4"
+            title="YouTube video"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+
+        <div class="yt-item">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/JpY7bYeKc5M"
+            title="YouTube video"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+
+        <div class="yt-item">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/UJuJXaeKbT4"
+            title="YouTube video"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+
+        <div class="yt-item">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/P32OWsrFlUU"
+            title="YouTube video"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+
+        <div class="yt-item">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/zBhdqbeawqQ"
+            title="YouTube video"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+
+        <div class="yt-item">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/eBGn4ysokMA"
+            title="YouTube video"
+            loading="lazy"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <button class="yt-arrow yt-next" type="button" aria-label="Video successivi">›</button>
+    </div>
+  </article>
+</section>
+
 <footer class="footer">
   <div>© 2025 <strong>NextItaly RP – Italia</strong>. Tutti i diritti riservati.</div>
   <div><strong>By Next Italy Developing</strong></div>
   <div>Antonino3400, EvilDev04, Ciopee, Ghost_bisou</div>
 </footer>
 
-  <script src="app.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
