@@ -36,13 +36,13 @@ document.addEventListener('DOMContentLoaded', highlightQuery);
   };
 
   // In RTL: prev -> destra, next -> sinistra
-  prev?.addEventListener("click", () => {
-    carousel.scrollBy({ left: +scrollByAmount(), behavior: "smooth" });
-  });
+prev?.addEventListener("click", () => {
+  carousel.scrollBy({ left: +scrollByAmount(), behavior: "smooth" });
+});
 
-  next?.addEventListener("click", () => {
-    carousel.scrollBy({ left: -scrollByAmount(), behavior: "smooth" });
-  });
+next?.addEventListener("click", () => {
+  carousel.scrollBy({ left: -scrollByAmount(), behavior: "smooth" });
+});
 })();
 
 window.addEventListener("load", () => {
