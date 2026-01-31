@@ -69,19 +69,21 @@ a:hover{text-decoration:underline}
   flex-wrap:wrap
 }
 
-/* 🔥 MENU BIANCO */
-.nav a{
-  color:#ffffff;
+/* ✅ MENU SEMPRE BIANCO (forzato) */
+.nav a,
+.nav a:visited{
+  color:#ffffff !important;
   padding:8px 10px;
   border-radius:10px;
-  border:1px solid transparent
+  border:1px solid transparent;
+  text-decoration:none !important;
 }
 
 .nav a:hover{
   background:rgba(255,255,255,.06);
   border-color:var(--border);
-  text-decoration:none;
-  color:#ffffff
+  text-decoration:none !important;
+  color:#ffffff !important;
 }
 
 /* SEARCH */
@@ -230,4 +232,11 @@ article, section, .content, .regolamento-text, .text-container{
   border-radius:14px;
   background:#000;
   box-shadow:0 10px 28px rgba(0,0,0,.35)
+}
+
+/* ✅ NASCONDI COMPLETAMENTE EVENTUALI FRECCE RIMASTE NELL'HTML */
+.yt-arrow,
+.yt-prev,
+.yt-next{
+  display:none !important;
 }
