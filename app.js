@@ -22,7 +22,7 @@ function highlightQuery(){
 
 document.addEventListener('DOMContentLoaded', highlightQuery);
 
-// YouTube carousel arrows
+// YouTube carousel arrows (RTL)
 (() => {
   const carousel = document.getElementById("ytCarousel");
   if (!carousel) return;
@@ -31,16 +31,17 @@ document.addEventListener('DOMContentLoaded', highlightQuery);
   const next = document.querySelector(".yt-next");
 
   const scrollByAmount = () => {
-    // scorre circa della larghezza di un video
     const item = carousel.querySelector(".yt-item");
     return item ? item.getBoundingClientRect().width + 18 : 380;
   };
 
+  // In RTL: prev -> destra, next -> sinistra
   prev?.addEventListener("click", () => {
-    carousel.scrollBy({ left: -scrollByAmount(), behavior: "smooth" });
+    carousel.scrollBy({ left: +scrollByAmount(), behavior: "smooth" });
   });
 
   next?.addEventListener("click", () => {
-    carousel.scrollBy({ left: scrollByAmount(), behavior: "smooth" });
+    carousel.scrollBy({ left: -scrollByAmount(), behavior: "smooth" });
   });
 })();
+
