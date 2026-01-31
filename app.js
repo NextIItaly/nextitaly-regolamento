@@ -25,35 +25,33 @@ function highlightQuery(){
 
 document.addEventListener('DOMContentLoaded', highlightQuery);
 
-/* ===============================
-   YouTube carousel — FIX DEFINITIVO
-   Compatibile con row-reverse
-================================ */
+// YouTube carousel — versione DEFINITIVA (no inversioni)
 (() => {
   const carousel = document.getElementById("ytCarousel");
   if (!carousel) return;
 
-  const btnLeft  = document.querySelector(".yt-prev"); // freccia SINISTRA
-  const btnRight = document.querySelector(".yt-next"); // freccia DESTRA
+  const btnLeft  = document.querySelector(".yt-prev"); // ⬅
+  const btnRight = document.querySelector(".yt-next"); // ➡
 
-  const getStep = () => {
+  const step = () => {
     const item = carousel.querySelector(".yt-item");
-    return item ? item.getBoundingClientRect().width + 18 : 380;
+    return item ? item.offsetWidth + 18 : 380;
   };
 
-  // Parti dalla fine (destra) al caricamento
+  // 🔥 parte dall’ultimo video (a destra)
   window.addEventListener("load", () => {
     carousel.scrollLeft = carousel.scrollWidth;
   });
 
-  // 👉 LOGICA CORRETTA CON row-reverse
-  // Freccia SINISTRA = video precedente
+  // ⬅ video precedente
   btnLeft?.addEventListener("click", () => {
-    carousel.scrollLeft -= getStep();
+    carousel.scrollBy({ left: -step(), behavior: "smooth" });
   });
 
-  // Freccia DESTRA = video successivo
+  // ➡ video successivo
   btnRight?.addEventListener("click", () => {
-    carousel.scrollLeft += getStep();
+    carousel.scrollBy({ left: step(), behavior: "smooth" });
   });
+})();
+
 })();
