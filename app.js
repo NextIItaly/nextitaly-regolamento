@@ -22,33 +22,33 @@ function highlightQuery(){
 
 document.addEventListener('DOMContentLoaded', highlightQuery);
 
-// YouTube carousel arrows (RTL)
+// YouTube carousel arrows — FIX DEFINITIVO per row-reverse
 (() => {
   const carousel = document.getElementById("ytCarousel");
   if (!carousel) return;
 
-  const prev = document.querySelector(".yt-prev");
-  const next = document.querySelector(".yt-next");
+  const btnLeft  = document.querySelector(".yt-prev"); // freccia SINISTRA
+  const btnRight = document.querySelector(".yt-next"); // freccia DESTRA
 
-  const scrollByAmount = () => {
+  const getStep = () => {
     const item = carousel.querySelector(".yt-item");
-    return item ? item.getBoundingClientRect().width + 18 : 380;
+    return item ? item.offsetWidth + 18 : 380;
   };
 
-// FIX: pulsanti coerenti con row-reverse
-prev?.addEventListener("click", () => {
-  // freccia SINISTRA → va al video precedente (scrolla a SINISTRA)
-  carousel.scrollBy({ left: -scrollByAmount(), behavior: "smooth" });
-});
+  // Parti dall'estrema destra al load
+  window.addEventListener("load", () => {
+    carousel.scrollLeft = carousel.scrollWidth;
+  });
 
-next?.addEventListener("click", () => {
-  // freccia DESTRA → va al video successivo (scrolla a DESTRA)
-  carousel.scrollBy({ left: +scrollByAmount(), behavior: "smooth" });
-});
+  // 🔹 FRECCIA SINISTRA → vai a SINISTRA (video precedente)
+  btnLeft?.addEventListener("click", () => {
+    carousel.scrollLeft += getStep();
+  });
+
+  // 🔹 FRECCIA DESTRA → vai a DESTRA (video successivo)
+  btnRight?.addEventListener("click", () => {
+    carousel.scrollLeft -= getStep();
+  });
 })();
 
-window.addEventListener("load", () => {
-  const carousel = document.getElementById("ytCarousel");
-  if (carousel) carousel.scrollLeft = carousel.scrollWidth;
-});
 
