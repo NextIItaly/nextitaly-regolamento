@@ -45,7 +45,7 @@ a:hover{text-decoration:underline}
 .logo{
   display:flex;
   align-items:center;
-  gap:12px
+  gap:24px
 }
 
 .logo img{
