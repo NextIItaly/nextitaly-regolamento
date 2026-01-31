@@ -1,13 +1,13 @@
-
 function doSearch(q){
   if(!q) return;
-  // open https://next-italy.gitbook.io/next-italy-regolamento/ with query param
-  window.location.href = "https://next-italy.gitbook.io/next-italy-regolamento/" + encodeURIComponent(q);
+  window.location.href =
+    "https://next-italy.gitbook.io/next-italy-regolamento/" +
+    encodeURIComponent(q);
 }
 
 function highlightQuery(){
   const params = new URLSearchParams(location.search);
-  const q = (params.get('q')||'').trim();
+  const q = (params.get('q') || '').trim();
   const input = document.getElementById('q');
   if(input) input.value = q;
   if(!q) return;
@@ -15,14 +15,20 @@ function highlightQuery(){
   if(!pre) return;
   const text = pre.innerHTML;
   try{
-    const rx = new RegExp('(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')','gi');
+    const rx = new RegExp(
+      '(' + q.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')',
+      'gi'
+    );
     pre.innerHTML = text.replace(rx, '<mark>$1</mark>');
-  }catch(e){ /* ignore bad regex */ }
+  }catch(e){}
 }
 
 document.addEventListener('DOMContentLoaded', highlightQuery);
 
-// YouTube carousel arrows — FIX DEFINITIVO per row-reverse
+/* ===============================
+   YouTube carousel — FIX DEFINITIVO
+   Compatibile con row-reverse
+================================ */
 (() => {
   const carousel = document.getElementById("ytCarousel");
   if (!carousel) return;
@@ -32,23 +38,22 @@ document.addEventListener('DOMContentLoaded', highlightQuery);
 
   const getStep = () => {
     const item = carousel.querySelector(".yt-item");
-    return item ? item.offsetWidth + 18 : 380;
+    return item ? item.getBoundingClientRect().width + 18 : 380;
   };
 
-  // Parti dall'estrema destra al load
+  // Parti dalla fine (destra) al caricamento
   window.addEventListener("load", () => {
     carousel.scrollLeft = carousel.scrollWidth;
   });
 
-  // 🔹 FRECCIA SINISTRA → vai a SINISTRA (video precedente)
+  // 👉 LOGICA CORRETTA CON row-reverse
+  // Freccia SINISTRA = video precedente
   btnLeft?.addEventListener("click", () => {
-    carousel.scrollLeft += getStep();
-  });
-
-  // 🔹 FRECCIA DESTRA → vai a DESTRA (video successivo)
-  btnRight?.addEventListener("click", () => {
     carousel.scrollLeft -= getStep();
   });
+
+  // Freccia DESTRA = video successivo
+  btnRight?.addEventListener("click", () => {
+    carousel.scrollLeft += getStep();
+  });
 })();
-
-
