@@ -45,3 +45,8 @@ document.addEventListener('DOMContentLoaded', highlightQuery);
   });
 })();
 
+window.addEventListener("load", () => {
+  const carousel = document.getElementById("ytCarousel");
+  if (carousel) carousel.scrollLeft = carousel.scrollWidth;
+});
+
