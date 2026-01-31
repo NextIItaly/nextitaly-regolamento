@@ -21,3 +21,26 @@ function highlightQuery(){
 }
 
 document.addEventListener('DOMContentLoaded', highlightQuery);
+
+// YouTube carousel arrows
+(() => {
+  const carousel = document.getElementById("ytCarousel");
+  if (!carousel) return;
+
+  const prev = document.querySelector(".yt-prev");
+  const next = document.querySelector(".yt-next");
+
+  const scrollByAmount = () => {
+    // scorre circa della larghezza di un video
+    const item = carousel.querySelector(".yt-item");
+    return item ? item.getBoundingClientRect().width + 18 : 380;
+  };
+
+  prev?.addEventListener("click", () => {
+    carousel.scrollBy({ left: -scrollByAmount(), behavior: "smooth" });
+  });
+
+  next?.addEventListener("click", () => {
+    carousel.scrollBy({ left: scrollByAmount(), behavior: "smooth" });
+  });
+})();
