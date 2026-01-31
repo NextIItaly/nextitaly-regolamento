@@ -35,13 +35,15 @@ document.addEventListener('DOMContentLoaded', highlightQuery);
     return item ? item.getBoundingClientRect().width + 18 : 380;
   };
 
-  // In RTL: prev -> destra, next -> sinistra
+// FIX: pulsanti coerenti con row-reverse
 prev?.addEventListener("click", () => {
-  carousel.scrollBy({ left: +scrollByAmount(), behavior: "smooth" });
+  // freccia SINISTRA → va al video precedente (scrolla a SINISTRA)
+  carousel.scrollBy({ left: -scrollByAmount(), behavior: "smooth" });
 });
 
 next?.addEventListener("click", () => {
-  carousel.scrollBy({ left: -scrollByAmount(), behavior: "smooth" });
+  // freccia DESTRA → va al video successivo (scrolla a DESTRA)
+  carousel.scrollBy({ left: +scrollByAmount(), behavior: "smooth" });
 });
 })();
 
